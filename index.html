@@ -5,163 +5,187 @@ cute interactive valentine website for ranisa 🫂❤️‍🩹
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Ranisa 💖</title>
-
+<title>Ranisa Valentine</title>
 <style>
-body{
-  margin:0;
-  font-family:'Comic Sans MS', cursive;
-  text-align:center;
-  background:linear-gradient(135deg,#ffc0cb,#ffb6c1,#ffe4e1);
-  overflow:hidden;
-}
-.page{display:none;padding:20px;}
-.active{display:block;}
-h1,h2{color:#d63384;font-size:6vw;}
-button{
-  padding:15px 25px;
-  font-size:5vw;
-  margin:10px;
-  border:none;
-  border-radius:20px;
-  background:#ff69b4;
-  color:white;
-}
-img{max-width:80%;border-radius:20px;margin:15px;}
-input{
-  padding:15px;
-  font-size:5vw;
-  border-radius:15px;
-  border:2px solid pink;
-}
-.hearts{
-  position:fixed;
-  top:0;left:0;width:100%;height:100%;
-  pointer-events:none;overflow:hidden;
-}
-.heart{
-  position:absolute;
-  font-size:24px;
-  animation:float 6s linear infinite;
-}
-@keyframes float{
-  0%{transform:translateY(100vh);}
-  100%{transform:translateY(-10vh);}
-}
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to bottom right, #ffe6f0, #ffccff);
+    overflow-x: hidden;
+    color: #000;
+  }
+  .page {
+    display: none;
+    text-align: center;
+    padding: 30px 20px;
+    min-height: 100vh;
+    position: relative;
+  }
+  .active { display: block; }
+  button {
+    font-size: 18px;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .no-btn {
+    background-color: #ff6666;
+    color: white;
+    position: absolute;
+  }
+  .yes-btn {
+    background-color: #ff3399;
+    color: white;
+  }
+  .gift-img {
+    width: 150px;
+    margin: 20px;
+    cursor: pointer;
+  }
+  .letter {
+    text-align: left;
+    font-size: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: #fff0f5;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px auto;
+    width: 90%;
+  }
+  .centered {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .input-pass {
+    font-size: 18px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 10px;
+    border: 2px solid #ff99cc;
+  }
 </style>
 </head>
 <body>
 
-<audio id="music" loop></audio>
-
-<div class="hearts" id="hearts"></div>
-
-<!-- PAGE 1 -->
-<div class="page active" id="p1">
-  <h1>Isko kholo motu 😚💗🐼</h1>
-  <button onclick="next(2,'https://www.bensound.com/bensound-music/bensound-romantic.mp3')">Open 💖</button>
-</div>
-
-<!-- PAGE 2 -->
-<div class="page" id="p2">
-  <h1>Aage jaana hai golu ko ?? 🥹🫂🐻</h1>
-  <button onclick="next(3,'https://www.bensound.com/bensound-music/bensound-love.mp3')">Yes 😚</button>
-  <button onclick="alert('Not allowed 😝 Try again motuuu 💕')">No 🙈</button>
-</div>
-
-<!-- PAGE 3 -->
-<div class="page" id="p3">
-  <h1>Will you be my valentine my little miss sassy ?? 🥹🫂💖</h1>
-  <button onclick="next(4,'https://www.bensound.com/bensound-music/bensound-sweet.mp3')">Yes 💗</button>
-  <button id="noBtn">No 😝</button>
-</div>
-
-<!-- PANDA PAGE -->
-<div class="page" id="p4">
-  <h1>I knew it bola tha na babydoll fasa lunga 😚🐼💗</h1>
-  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-  <br><button onclick="next(5)">Next 💖</button>
-</div>
-
-<div class="page" id="p5">
-  <h1>Chalo Ranisa ungli pakad lo aage jaana hai 😚🫂💗</h1>
-  <button onclick="next(6)">Next 💖</button>
-</div>
-
-<!-- GIFTS -->
-<div class="page" id="p6">
-  <h1>Choose your gift babyyy 🎁💗</h1>
-  <button onclick="next(7)">💖 Pink Gift</button>
-  <button onclick="next(8)">❤️ Red Gift</button>
-</div>
-
-<!-- LETTER -->
-<div class="page" id="p7">
-  <h2>Happy valentiness day babyyy I lubbbb buuuuuu soooooo muchhhhh 😘💗🧿</h2>
-  <button onclick="next(9)">Next 💖</button>
-</div>
-
-<!-- MEMES -->
-<div class="page" id="p8">
-  <h2>Ye lo aapke liye kissii 😘🐱</h2>
-  <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
-
-  <h2>Ye lo huggyyy bhiii 🫂🧸</h2>
-  <img src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif">
-
-  <h2>Aur ye lo dher saaraaaa laaaadddd 💖🐱</h2>
-  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
-
-  <button onclick="next(9)">Next 💖</button>
-</div>
-
-<!-- VAULT -->
-<div class="page" id="p9">
-  <h1>Ye lo mere dil ka locker 🔐💗</h1>
-  <input id="pass" placeholder="Enter password">
+<!-- Page 1 -->
+<div id="page1" class="page active">
+  <h1>Isko kholo M-O-T-U 🐼💗</h1>
+  <img src="https://media.giphy.com/media/QvBoMEcQ7DQXK/giphy.gif" alt="floating hearts" width="200">
   <br><br>
-  <button onclick="checkPass()">Unlock 💖</button>
-  <p id="wrong" style="color:red;"></p>
+  <button class="yes-btn" onclick="nextPage(2)">Open 💖</button>
+  <button class="no-btn" id="no1">No ❌</button>
 </div>
 
-<!-- FINAL -->
-<div class="page" id="p10">
-  <h1>I lubbbbbbbbb buuuuuuu sooooo muchhhhh meriiii rasmalaiiiii 😘💗🧿</h1>
-  <h2>Will you be my rasmalai forever gubu ?? 💖</h2>
-  <input placeholder="Type your answer here babyyy 😚">
+<!-- Page 2 -->
+<div id="page2" class="page">
+  <h1>Aage jaana hai Golu ko 😚</h1>
+  <p>Will you be my Valentine my little miss sassy?? 🥹🫂</p>
+  <button class="yes-btn" onclick="nextPage(3)">Yes 💗</button>
+  <button class="no-btn" id="no2">No ❌</button>
+</div>
+
+<!-- Page 3 -->
+<div id="page3" class="page">
+  <h1>I knew it! Bola tha na babydoll fasa lunga 😚🫂😘</h1>
+  <img src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="dancing panda" width="250">
+  <br>
+  <button class="yes-btn" onclick="nextPage(4)">Next ➡️</button>
+</div>
+
+<!-- Page 4: Gift Boxes -->
+<div id="page4" class="page">
+  <h1>Chalo Ranisa, ungli pakad lo aage jaana hai 😚</h1>
+  <div class="centered">
+    <img src="https://cdn.pixabay.com/photo/2017/06/06/00/40/gift-2376511_1280.png" class="gift-img" onclick="showLetter()">
+    <img src="https://cdn.pixabay.com/photo/2017/06/06/00/40/gift-2376511_1280.png" class="gift-img" onclick="showGifs()">
+  </div>
+</div>
+
+<!-- Page 5: Letter -->
+<div id="page5" class="page">
+  <div class="letter">
+    Happy valentiness day babyyy hihihi my love my valentine I lubbbb buuuuuu soooooo muchhhhh mera goludaaa muaaahhhhhh 😘💗 thank you for always being with me baby thank you for kissing me hugging me supporting me taking care of meee 😭😭😭🧿🧿🧿 Ahhhh I am so lucky to have you babyyyy abhi bhaga lunga aapko 😭 ek baat batao itne pyaare bhi lagte ho aur hot bhi lagte woh bhi dono same time kaiseee 😭 kya hai aapki sundarta ka raaz malkin 😚🤭 aisa ganda chidhate ki punish karne ka man hota fir aisa baby face banate ki aisa lagta ayy innu pyaare baby ko kaise punish karu 😭 badmaaash kahiii kee 🥲🥹🫂 ranisa my love for you cannot be measure I lubbb buuuuuu forever and ever and ever and ever I am always yoursss my babyyy my cutieee my shonaaa my kitten mera babyyy mera cutieee patootieee 😘💗 happy valentiness day baby saari Zindagi aapki hi hai kyunki aap hi ho zindagi kyunki tum hi ho ab tum hi ho zindagi ab tum hi ho 😭💗😘 happy valentinesss day babyyy ruko bas ab toh aur bohot surprise baaki hai 😚 my pretty little baby thu thu thu thu kisi ki nazar na lage 😭🧿💗😘🫂
+  </div>
+</div>
+
+<!-- Page 6: GIFs -->
+<div id="page6" class="page">
+  <div class="centered">
+    <div>
+      <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" width="150">
+      <p>Ye lo aapke liye kissii 😘😘😘</p>
+    </div>
+    <div>
+      <img src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="150">
+      <p>Ye lo huggyyy bhi 🫂🫂🫂</p>
+    </div>
+    <div>
+      <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" width="150">
+      <p>Aur ye lo dher saaraaaa laaaadddd 🤗🤗🤗💖😚</p>
+    </div>
+  </div>
+  <button class="yes-btn" onclick="nextPage(7)">Next ➡️</button>
+</div>
+
+<!-- Page 7: Vault -->
+<div id="page7" class="page">
+  <h1>Ye lo mere dil ka locker 💖</h1>
+  <input type="text" placeholder="Enter password" class="input-pass" id="vaultPass">
+  <button class="yes-btn" onclick="checkPassword()">Unlock 🔓</button>
+</div>
+
+<!-- Page 8: Final -->
+<div id="page8" class="page">
+  <h1>I lubbbbbbbbbbbbbbbbb buuuuuuuuuuuuuuuuuuuuuuu sooooooooooooooooooo muchhhhhhhhhhhhhhhhh meriiiiii rasmalaiiiii muaaaaahhhhhhhhh 😘😘😘💗💗🧿🧿🧿🧿🧿😘😘😘😘😘</h1>
+  <p>Will you be my rasmalai forever gubu ??</p>
+  <p>Will you love me always and forever like I will do ???</p>
+  <textarea placeholder="Type your answer here..." style="width:90%;height:120px;font-size:20px;border-radius:10px;margin-top:20px;"></textarea>
 </div>
 
 <script>
-function next(n, musicUrl){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('p'+n).classList.add('active');
-  if(musicUrl){
-    const m=document.getElementById('music');
-    m.src=musicUrl;
-    m.play();
-  }
-}
-function checkPass(){
-  if(document.getElementById('pass').value==='05030804'){
-    next(10);
-  }else{
-    document.getElementById('wrong').innerText='Wrong password babyyy 😝💔';
-  }
-}
-const noBtn=document.getElementById('noBtn');
-noBtn.addEventListener('mouseover',()=>{
-  noBtn.style.position='absolute';
-  noBtn.style.top=Math.random()*80+'%';
-  noBtn.style.left=Math.random()*80+'%';
-});
-for(let i=0;i<30;i++){
-  let h=document.createElement('div');
-  h.className='heart';
-  h.innerHTML='💗';
-  h.style.left=Math.random()*100+'%';
-  document.getElementById('hearts').appendChild(h);
-}
-</script>
+// Pages
+let currentPage = 1;
 
+function nextPage(pageNum){
+  document.getElementById(`page${currentPage}`).classList.remove('active');
+  currentPage = pageNum;
+  document.getElementById(`page${currentPage}`).classList.add('active');
+}
+
+// No button logic for first two pages
+function moveNoButton(id){
+  const btn = document.getElementById(id);
+  btn.style.top = Math.random()*70 + "%";
+  btn.style.left = Math.random()*70 + "%";
+}
+
+// Page 5 & 6 triggers
+function showLetter(){
+  nextPage(5);
+}
+function showGifs(){
+  nextPage(6);
+}
+
+// Vault password
+function checkPassword(){
+  const pass = document.getElementById('vaultPass').value;
+  if(pass === '05030804'){
+    nextPage(8);
+    alert('Heart blast! 💖💖💖');
+  } else {
+    alert('Incorrect password 😢');
+  }
+}
+
+// Animate No buttons every 500ms
+setInterval(()=>{moveNoButton('no1'); moveNoButton('no2');},500);
+</script>
 </body>
   </html>
