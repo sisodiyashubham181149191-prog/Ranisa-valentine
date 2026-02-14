@@ -4,113 +4,166 @@ Cute interactive valentine website for ranisa ❤️‍🩹🫂
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Ranisa 💖</title>
 <style>
 body{
   margin:0;
   font-family:'Comic Sans MS', cursive;
   text-align:center;
-  background:linear-gradient(135deg,#ffd6ec,#ffe4f2,#fff0f5);
+  background:linear-gradient(135deg,#ffc0cb,#ffb6c1,#ffe4e1);
   overflow:hidden;
 }
-
-.page{
-  display:none;
-  height:100vh;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  padding:20px;
-}
-
-.active{ display:flex; }
-
-h1{
-  font-size:32px;
-  color:#ff2e7a;
-}
-
+.page{display:none;padding:40px;}
+.active{display:block;}
 button{
-  padding:15px 30px;
+  padding:15px 25px;
   font-size:20px;
+  margin:10px;
   border:none;
-  border-radius:30px;
-  background:#ff2e7a;
-  color:white;
+  border-radius:20px;
   cursor:pointer;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
-  transition:0.3s;
+  background:#ff69b4;
+  color:white;
 }
-button:hover{
-  transform:scale(1.1);
-}
-
+h1,h2{color:#d63384;}
 .hearts{
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  pointer-events:none;
+  overflow:hidden;
+}
+.heart{
   position:absolute;
-  font-size:20px;
+  font-size:24px;
   animation:float 6s linear infinite;
 }
-
 @keyframes float{
-  0%{ transform:translateY(100vh); opacity:0; }
-  50%{ opacity:1; }
-  100%{ transform:translateY(-10vh); opacity:0; }
+  0%{transform:translateY(100vh);}
+  100%{transform:translateY(-10vh);}
 }
-
-.panda{
-  font-size:80px;
-  animation:dance 0.8s infinite alternate;
-}
-
-@keyframes dance{
-  from{ transform:rotate(-10deg) translateY(0); }
-  to{ transform:rotate(10deg) translateY(-10px); }
+img{max-width:300px;border-radius:20px;}
+input{
+  padding:15px;
+  font-size:18px;
+  border-radius:15px;
+  border:2px solid pink;
 }
 </style>
 </head>
 <body>
 
-<!-- Page 1 -->
-<div class="page active" id="page1">
-  <h1>Isko kholo Motu 🐼💖</h1>
-  <button onclick="nextPage(2)">Open 💘</button>
+<div class="hearts" id="hearts"></div>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+  <h1>Isko kholo motu 😚💗🐼</h1>
+  <button onclick="next(2)">Open 💖</button>
 </div>
 
-<!-- Page 2 -->
-<div class="page" id="page2">
-  <h1>Will you be my Valentine? 💖🐼</h1>
-  <button onclick="nextPage(3)">Yes 😚</button>
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+  <h1>Aage jaana hai golu ko ?? 🥹🫂🐻</h1>
+  <button onclick="next(3)">Yes 😚</button>
+  <button onclick="alert('Not allowed 😝 Try again motuuu 💕')">No 🙈</button>
 </div>
 
-<!-- Page 3 -->
-<div class="page" id="page3">
-  <h1>Will you be mine… today, tomorrow, forever? 🫀✨</h1>
-  <button onclick="nextPage(4)">Yes ♾️</button>
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+  <h1>Will you be my valentine my little miss sassy ?? 🥹🫂💖</h1>
+  <button onclick="next(4)">Yes 💗</button>
+  <button id="noBtn">No 😝</button>
 </div>
 
-<!-- Final Page -->
-<div class="page" id="page4">
-  <div class="panda">🐼</div>
-  <h1>I knew it 😚<br>Bola tha na fasal lunga 🫂😘😉</h1>
+<!-- PAGE 4 -->
+<div class="page" id="p4">
+  <h1>I knew it bola tha na babydoll fasa lunga 😚🐼💗</h1>
+  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+  <br><button onclick="next(5)">Next 💖</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="p5">
+  <h1>Chalo Ranisa ungli pakad lo aage jaana hai 😚🫂💗</h1>
+  <button onclick="next(6)">Next 💖</button>
+</div>
+
+<!-- PAGE 6 GIFTS -->
+<div class="page" id="p6">
+  <h1>Choose your gift babyyy 🎁💗</h1>
+  <button onclick="next(7)">💖 Pink Gift</button>
+  <button onclick="next(8)">❤️ Red Gift</button>
+</div>
+
+<!-- LOVE LETTER -->
+<div class="page" id="p7">
+  <h2>
+Happy valentiness day babyyy hihihi my love my valentine I lubbbb buuuuuu soooooo muchhhhh 💗😘<br><br>
+Thank you for always being with me baby thank you for kissing me hugging me supporting me taking care of meee 😭🧿<br><br>
+Ahhhh I am so lucky to have you babyyyy abhi bhaga lunga aapko 😭<br><br>
+Itne pyaare bhi lagte ho aur hot bhi lagte woh bhi same time kaiseee 😭🤭<br><br>
+Badmaaash kahiii kee 🥲🥹🫂<br><br>
+Ranisa my love for you cannot be measure I lubbb buuuuuu forever and ever 💗😘<br><br>
+Happy valentiness day baby saari Zindagi aapki hi hai kyunki aap hi ho zindagi 💗😭<br><br>
+Ruko bas ab toh aur bohot surprise baaki hai 😚🧿💗
+  </h2>
+  <button onclick="next(9)">Next 💖</button>
+</div>
+
+<!-- MEME GIFS -->
+<div class="page" id="p8">
+  <h2>Ye lo aapke liye kissii 😘🐱</h2>
+  <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"><br><br>
+  <h2>Ye lo huggyyy bhiii 🫂🐻</h2>
+  <img src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif"><br><br>
+  <h2>Aur ye lo dher saaraaaa laaaadddd 💖🐱</h2>
+  <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif"><br>
+  <button onclick="next(9)">Next 💖</button>
+</div>
+
+<!-- VAULT -->
+<div class="page" id="p9">
+  <h1>Ye lo mere dil ka locker 🔐💗</h1>
+  <input id="pass" placeholder="Enter password">
+  <br><br>
+  <button onclick="checkPass()">Unlock 💖</button>
+  <p id="wrong" style="color:red;"></p>
+</div>
+
+<!-- FINAL -->
+<div class="page" id="p10">
+  <h1>I lubbbbbbbbbbbbb buuuuuuuuuuu sooooooooo muchhhhh meriiii rasmalaiiiii 😘💗🧿</h1>
+  <h2>Will you be my rasmalai forever gubu ?? 💖</h2>
+  <h2>Will you love me always and forever like I will do ??? 💗</h2>
+  <input placeholder="Type your answer here babyyy 😚">
 </div>
 
 <script>
-function nextPage(page){
+function next(n){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page'+page).classList.add('active');
+  document.getElementById('p'+n).classList.add('active');
 }
-
-// floating hearts
-setInterval(()=>{
-  const heart=document.createElement("div");
-  heart.className="hearts";
-  heart.innerHTML="💖";
-  heart.style.left=Math.random()*100+"vw";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-},500);
+function checkPass(){
+  if(document.getElementById('pass').value==='05030804'){
+    next(10);
+  }else{
+    document.getElementById('wrong').innerText='Wrong password babyyy 😝💔';
+  }
+}
+const noBtn=document.getElementById('noBtn');
+noBtn.addEventListener('mouseover',()=>{
+  noBtn.style.position='absolute';
+  noBtn.style.top=Math.random()*80+'%';
+  noBtn.style.left=Math.random()*80+'%';
+});
+for(let i=0;i<30;i++){
+  let h=document.createElement('div');
+  h.className='heart';
+  h.innerHTML='💗';
+  h.style.left=Math.random()*100+'%';
+  h.style.animationDuration=(3+Math.random()*3)+'s';
+  document.getElementById('hearts').appendChild(h);
+}
 </script>
 
 </body>
-  </html>
+                                  </html>
