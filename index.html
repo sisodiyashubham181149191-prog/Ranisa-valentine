@@ -1,10 +1,12 @@
-# Ranisa-valentine
-Cute interactive valentine website for ranisa ❤️‍🩹🫂
+Ranisa-valentine
+cute interactive valentine website for ranisa 🫂❤️‍🩹
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Ranisa 💖</title>
+
 <style>
 body{
   margin:0;
@@ -13,24 +15,29 @@ body{
   background:linear-gradient(135deg,#ffc0cb,#ffb6c1,#ffe4e1);
   overflow:hidden;
 }
-.page{display:none;padding:40px;}
+.page{display:none;padding:20px;}
 .active{display:block;}
+h1,h2{color:#d63384;font-size:6vw;}
 button{
   padding:15px 25px;
-  font-size:20px;
+  font-size:5vw;
   margin:10px;
   border:none;
   border-radius:20px;
-  cursor:pointer;
   background:#ff69b4;
   color:white;
 }
-h1,h2{color:#d63384;}
+img{max-width:80%;border-radius:20px;margin:15px;}
+input{
+  padding:15px;
+  font-size:5vw;
+  border-radius:15px;
+  border:2px solid pink;
+}
 .hearts{
   position:fixed;
   top:0;left:0;width:100%;height:100%;
-  pointer-events:none;
-  overflow:hidden;
+  pointer-events:none;overflow:hidden;
 }
 .heart{
   position:absolute;
@@ -41,82 +48,70 @@ h1,h2{color:#d63384;}
   0%{transform:translateY(100vh);}
   100%{transform:translateY(-10vh);}
 }
-img{max-width:300px;border-radius:20px;}
-input{
-  padding:15px;
-  font-size:18px;
-  border-radius:15px;
-  border:2px solid pink;
-}
 </style>
 </head>
 <body>
+
+<audio id="music" loop></audio>
 
 <div class="hearts" id="hearts"></div>
 
 <!-- PAGE 1 -->
 <div class="page active" id="p1">
   <h1>Isko kholo motu 😚💗🐼</h1>
-  <button onclick="next(2)">Open 💖</button>
+  <button onclick="next(2,'https://www.bensound.com/bensound-music/bensound-romantic.mp3')">Open 💖</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" id="p2">
   <h1>Aage jaana hai golu ko ?? 🥹🫂🐻</h1>
-  <button onclick="next(3)">Yes 😚</button>
+  <button onclick="next(3,'https://www.bensound.com/bensound-music/bensound-love.mp3')">Yes 😚</button>
   <button onclick="alert('Not allowed 😝 Try again motuuu 💕')">No 🙈</button>
 </div>
 
 <!-- PAGE 3 -->
 <div class="page" id="p3">
   <h1>Will you be my valentine my little miss sassy ?? 🥹🫂💖</h1>
-  <button onclick="next(4)">Yes 💗</button>
+  <button onclick="next(4,'https://www.bensound.com/bensound-music/bensound-sweet.mp3')">Yes 💗</button>
   <button id="noBtn">No 😝</button>
 </div>
 
-<!-- PAGE 4 -->
+<!-- PANDA PAGE -->
 <div class="page" id="p4">
   <h1>I knew it bola tha na babydoll fasa lunga 😚🐼💗</h1>
   <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
   <br><button onclick="next(5)">Next 💖</button>
 </div>
 
-<!-- PAGE 5 -->
 <div class="page" id="p5">
   <h1>Chalo Ranisa ungli pakad lo aage jaana hai 😚🫂💗</h1>
   <button onclick="next(6)">Next 💖</button>
 </div>
 
-<!-- PAGE 6 GIFTS -->
+<!-- GIFTS -->
 <div class="page" id="p6">
   <h1>Choose your gift babyyy 🎁💗</h1>
   <button onclick="next(7)">💖 Pink Gift</button>
   <button onclick="next(8)">❤️ Red Gift</button>
 </div>
 
-<!-- LOVE LETTER -->
+<!-- LETTER -->
 <div class="page" id="p7">
-  <h2>
-Happy valentiness day babyyy hihihi my love my valentine I lubbbb buuuuuu soooooo muchhhhh 💗😘<br><br>
-Thank you for always being with me baby thank you for kissing me hugging me supporting me taking care of meee 😭🧿<br><br>
-Ahhhh I am so lucky to have you babyyyy abhi bhaga lunga aapko 😭<br><br>
-Itne pyaare bhi lagte ho aur hot bhi lagte woh bhi same time kaiseee 😭🤭<br><br>
-Badmaaash kahiii kee 🥲🥹🫂<br><br>
-Ranisa my love for you cannot be measure I lubbb buuuuuu forever and ever 💗😘<br><br>
-Happy valentiness day baby saari Zindagi aapki hi hai kyunki aap hi ho zindagi 💗😭<br><br>
-Ruko bas ab toh aur bohot surprise baaki hai 😚🧿💗
-  </h2>
+  <h2>Happy valentiness day babyyy I lubbbb buuuuuu soooooo muchhhhh 😘💗🧿</h2>
   <button onclick="next(9)">Next 💖</button>
 </div>
 
-<!-- MEME GIFS -->
+<!-- MEMES -->
 <div class="page" id="p8">
   <h2>Ye lo aapke liye kissii 😘🐱</h2>
-  <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"><br><br>
-  <h2>Ye lo huggyyy bhiii 🫂🐻</h2>
-  <img src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif"><br><br>
+  <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+
+  <h2>Ye lo huggyyy bhiii 🫂🧸</h2>
+  <img src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif">
+
   <h2>Aur ye lo dher saaraaaa laaaadddd 💖🐱</h2>
-  <img src="https://media.giphy.com/media/ICOgUNjpvO0PC/giphy.gif"><br>
+  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
+
   <button onclick="next(9)">Next 💖</button>
 </div>
 
@@ -131,16 +126,20 @@ Ruko bas ab toh aur bohot surprise baaki hai 😚🧿💗
 
 <!-- FINAL -->
 <div class="page" id="p10">
-  <h1>I lubbbbbbbbbbbbb buuuuuuuuuuu sooooooooo muchhhhh meriiii rasmalaiiiii 😘💗🧿</h1>
+  <h1>I lubbbbbbbbb buuuuuuu sooooo muchhhhh meriiii rasmalaiiiii 😘💗🧿</h1>
   <h2>Will you be my rasmalai forever gubu ?? 💖</h2>
-  <h2>Will you love me always and forever like I will do ??? 💗</h2>
   <input placeholder="Type your answer here babyyy 😚">
 </div>
 
 <script>
-function next(n){
+function next(n, musicUrl){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('p'+n).classList.add('active');
+  if(musicUrl){
+    const m=document.getElementById('music');
+    m.src=musicUrl;
+    m.play();
+  }
 }
 function checkPass(){
   if(document.getElementById('pass').value==='05030804'){
@@ -160,10 +159,9 @@ for(let i=0;i<30;i++){
   h.className='heart';
   h.innerHTML='💗';
   h.style.left=Math.random()*100+'%';
-  h.style.animationDuration=(3+Math.random()*3)+'s';
   document.getElementById('hearts').appendChild(h);
 }
 </script>
 
 </body>
-                                  </html>
+  </html>
